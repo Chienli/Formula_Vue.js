@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="view">
+      <div class="container">
+        <Box :key="number" v-for="number in array" :number="number" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Box from "./components/Box.vue";
 
 export default {
-  name: 'app',
+  name: "app",
+  data: () => ({
+    array: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  }),
   components: {
-    HelloWorld
+    Box
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.view {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 1280px;
+  height: 1372px;
+  background-color: #eeeeee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
